@@ -1,0 +1,58 @@
+{
+  "author": {
+    "name": "Diego Saavedra San Juan",
+    "email": "diego.saavedra.san.juan@liu.se"
+  },
+  "bugs": {
+    "url": "https://github.com/diegossj/sitecore-package-installer/issues"
+  },
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-foreach": "^0.1.0",
+    "gulp-msbuild": "0.2.13",
+    "gulp-newer": "^1.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "lodash": "^4.1.0",
+    "minimist": "^1.2.0",
+    "nopt": "^3.0.6",
+    "require-dir": "^0.3.0",
+    "rimraf": "^2.4.3",
+    "run-sequence": "^1.1.5",
+    "shelljs": "^0.5.3",
+	"yargs":"7.0.2"
+  },
+  "description": "Sitecore Package Installer ",
+  "devDependencies": {},
+  "directories": {},
+  "keywords": [
+    "sitecore",
+    "gulp",
+    "solr"
+  ],
+  "license": "ISC",
+  "main": "build.js",
+  "maintainers": [
+    {
+      "name": "Diego Saavedra San Juan",
+      "email": "diego.saavedra.san.juan@liu.se"
+    }
+  ],
+  "name": "sitecore-package-installer",
+  "optionalDependencies": { },
+  "os": ["win32"],
+  "private": false,
+  "readme": "See http://github.com/diegossj/sitecore-package-installer",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.git@github.com:diegossj/sitecore-package-installer.git"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "version": "1.0.0"
+}
