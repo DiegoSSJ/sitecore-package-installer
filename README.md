@@ -1,4 +1,4 @@
-#Sitecore package installer npm gulp package
+# Sitecore package installer npm gulp package
 
 Provides gulp tasks for installation of Sitecore packages through Url service
 It supports several versions of Sitecore and Solr and can work with both Solr standalone and SolrCloud. 
@@ -9,7 +9,7 @@ Based on the great installation instructions from the sitecore community documen
 https://sitecore-community.github.io/docs/search/solr/fast-track-solr-for-lazy-developers/
 
 
-##Usage
+## Usage
 
 This npm package is intended to be included from a Sitecore Habitat project. It is included via package.json like this:
 
@@ -40,7 +40,7 @@ gulp install-sitecore-packages
 ```
 
 
-##Gulp task parameters
+## Gulp task parameters
 
 The gulp tasks expects a file named "solution-sitecore-packages.json" on the root of the solution folder (where gulp is executed) containing the following structure:
 ```
