@@ -88,11 +88,14 @@ function Install-SitecorePackage (
             Ignore-SSLCertificates
         }  
         
-        wget $serviceUrl -Method POST -Body ("SharedKey={0}&Path={1}" -f $sharedSecret,$packageLocation) 
+        $bodyParams = ("SharedKey={0}&Path={1}" -f $sharedSecret,$packageLocation)
+        Write-Debug "Doing call with parameters: $bodyParams"
+        wget $serviceUrl -Method POST -Body $bodyParams
     }
     catch
     {
-        Write-Error "Couldn't install package. Error message from wget: " $_.ErrorDetails
-    }
-    
+        Write-Host "Couldn't install package. Error message from wget: " $_.ErrorDetails " exception: " $_.Exception       
+    }       
+
+    Write-Host "Finished install call"
 }
