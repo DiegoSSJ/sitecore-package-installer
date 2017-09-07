@@ -21,11 +21,12 @@ gulp.task("install-sitecore-packages", function (callback) {
   build.logEvent("builder", "Installing Sitecore packages");
   var psFile = path.join(path.dirname(fs.realpathSync(__filename)), "/powershell-scripts/Install-packages.ps1");
   var packagesConfig = path.join(process.cwd(), "/solution-sitecore-packages.json");
+  var sitecoreRoleInstance = "cm"
   
-  powershell.runAsync(psFile, " -packagesFileLocation '" + packagesConfig + "'", callback);
+  powershell.runAsync(psFile, " -packagesFileLocation '" + packagesConfig + "' -sitecoreInstanceRole '" + sitecoreInstanceRole + "'", callback);
 });
 
 gulp.task("default", function () {
-	console.log("You need to specifiy a task.");
+	console.log("You need to specify a task.");
 });
 

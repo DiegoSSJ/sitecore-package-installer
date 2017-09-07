@@ -48,10 +48,15 @@ function Install-SitecorePackage (
     [Parameter(Mandatory=$true)]
     [string]$sharedSecret = [string]::Empty,
     [Parameter(Mandatory=$true)]
-    [string]$serviceUrl = [string]::Empty
+    [string]$serviceUrl = [string]::Empty,
+    [System.Management.Automation.CredentialAttribute()]$credentials = $null
     ) 
 {
-    Write-Host "Getting" $package.packageName "Package"   
+    Write-Host "Getting" $package.packageName "Package"
+    if ( $credentials -ne $null )
+    {
+        Write-Host "With credentials for user: " $credentials.UserName
+    }  
        
 
     $packageLocation = $package.location
@@ -61,7 +66,7 @@ function Install-SitecorePackage (
             
 
         Import-Module BitsTransfer
-        Start-BitsTransfer -Source $package.location -Destination ("{0}\{1}.zip" -f $env:temp, $package.packageName)                       
+        Start-BitsTransfer -Source $package.location -Destination ("{0}\{1}.zip" -f $env:temp, $package.packageName) -Credential $credentials -Authentication Basic
 
         if ( Test-Path ("{0}\{1}.zip" -f $env:temp, $package.packageName))
         {
@@ -90,7 +95,7 @@ function Install-SitecorePackage (
         
         $bodyParams = ("SharedKey={0}&Path={1}" -f $sharedSecret,$packageLocation)
         Write-Debug "Doing call with parameters: $bodyParams"
-        wget $serviceUrl -Method POST -Body $bodyParams
+        wget $serviceUrl -Method POST -Body $bodyParams -TimeoutSec 1200
     }
     catch
     {
